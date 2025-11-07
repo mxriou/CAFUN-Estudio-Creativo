@@ -1,0 +1,8 @@
+# Logo placeholder
+
+Para agregar tu logo real:
+1. Reemplaza este archivo con tu imagen de logo
+2. O actualiza la ruta en Navbar.tsx para apuntar a tu logo
+3. Formatos recomendados: PNG, SVG, JPG
+4. Tamaño recomendado: 40x40px o mayor (se escalará automáticamente)
+

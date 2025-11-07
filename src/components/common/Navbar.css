@@ -1,0 +1,334 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    color: white;
+    padding: 0 2rem;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 0;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-image {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    color: #f8f8f8;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none;  /* Oculto por defecto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Icono hamburguesa - 3 líneas blancas */
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff !important;  /* Color blanco explícito */
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    margin: 0 auto;  /* Centrar horizontalmente */
+}
+
+/* Líneas superior e inferior del hamburguesa */
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff !important;  /* Color blanco explícito */
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    left: 0;  /* Alinear con la línea central */
+}
+
+/* Línea superior */
+.hamburger::before {
+    top: -8px;  /* Posición relativa al centro */
+}
+
+/* Línea inferior */
+.hamburger::after {
+    top: 8px;  /* Posición relativa al centro */
+}
+
+/* Animación cuando el menú está abierto - se convierte en X */
+.hamburger.active {
+    background-color: transparent !important;
+}
+
+.hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;  /* Centrar cuando está activo */
+}
+
+.hamburger.active::after {
+    transform: rotate(-45deg);
+    top: 0;  /* Centrar cuando está activo */
+}
+
+/* Menú principal */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-item a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #f0f0f0;
+}
+
+.menu-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #61dafb;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu-item a:hover::after {
+    width: 80%;
+}
+
+/* Iconos de la derecha */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+/* Buscador */
+.search-container {
+    position: relative;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    min-width: 250px;
+    animation: slideDown 0.3s ease;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #61dafb;
+    box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.2);
+}
+
+/* Carrito */
+.cart-button {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Animaciones */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .navbar-menu {
+        gap: 1rem;
+    }
+    
+    .menu-item a {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .menu-toggle {
+        display: flex !important;  /* Forzar mostrar en móviles con flexbox */
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .navbar-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        gap: 1rem;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-menu.active {
+        left: 0;
+    }
+    
+    .menu-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-item a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .menu-item a:hover {
+        background: rgba(255,255,255,0.05);
+    }
+    
+    .navbar-icons {
+        gap: 0.5rem;
+    }
+    
+    .search-dropdown {
+        right: -100px;
+        min-width: 200px;
+    }
+}
+
+/* Responsive para móviles pequeños */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 0.5rem;
+    }
+    
+    .logo-text {
+        display: none;
+    }
+    
+    .navbar-icons {
+        gap: 0.25rem;
+    }
+    
+    .search-dropdown {
+        right: -150px;
+        min-width: 180px;
+    }
+}

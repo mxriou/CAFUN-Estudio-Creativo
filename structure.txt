@@ -1,0 +1,11 @@
+*Para cambiara  react-router usar <Link>
+   Esto ayuda en la manera en que se accede a cada pagina 
+
+*Animar la apertura del menu con framer-motion 
+
+*Agregar iconos con react-icons
+
+*Ocultar el menu cuando se hace scroll hacia abajo
+
+
+

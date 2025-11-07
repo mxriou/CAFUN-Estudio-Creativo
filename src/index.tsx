@@ -1,3 +1,6 @@
+/*Este es el archivo que se ejecuta para que se pueda ver el proyecto en el navegador
+  Es el lugar donde se renderiza el componente JSX
+*/
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
