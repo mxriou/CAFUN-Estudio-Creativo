@@ -1,0 +1,12 @@
+.sidebar {
+  width: 240px;
+  padding: 18px;
+  border-right: 1px solid #f0f0f0;
+  background: #fff;
+}
+.block { margin-bottom: 20px }
+.title { font-size:13px; font-weight:700; margin-bottom:8px }
+.option { display:block; font-size:13px; margin-bottom:6px }
+.list { list-style:none; padding:0; margin:0 }
+.catBtn { display:block; border:0; background:transparent; padding:6px 0; text-align:left; width:100%; cursor:pointer; color:#111 }
+.active { font-weight:700 }

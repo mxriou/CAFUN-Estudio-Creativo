@@ -13,7 +13,6 @@ import GaleriaPage from "./pages/Galeria/GaleriaPage";
 import NosotrosPage from "./pages/Nosotros/NosotrosPage";
 import PinturasPage from "./pages/Pinturas /PinturasPage";
 
-import Header from './components/common/Header';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 // import Gallery from './pages/Galeria/GaleriaPage';
@@ -33,7 +32,6 @@ import Footer from './components/common/Footer';
 const App: React.FC = () =>  {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/pinturas" element={<PinturasPage />}/>

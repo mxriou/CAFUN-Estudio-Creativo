@@ -33,9 +33,9 @@ const NavBar = () => {
             <ul className={`navbar-menu ${open ? 'active' : ''}`}>
                 {menuItems.map((item, index) => (
                     <li key={index} className="menu-item">
-                        <a href={item.path} onClick={() => setOpen(false)}>
+                        <Link to={item.path} onClick={() => setOpen(false)}>
                             {item.label}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>

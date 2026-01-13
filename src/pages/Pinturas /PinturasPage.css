@@ -1,0 +1,136 @@
+/* PinturasPage styles: hero, carousel and products layout */
+
+:root{
+	--page-bg: #ffffff;
+	--muted: #777;
+	--gap: 28px;
+	--max-width: 1200px;
+}
+
+.pinturas-root{ background: var(--page-bg); color: #111; }
+
+.pinturas-hero{ padding: 36px 18px 8px; text-align:center }
+.pinturas-title{ font-family: Georgia, 'Times New Roman', serif; font-size:40px; letter-spacing:2px; margin:8px 0 }
+
+.carousel-section{
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	height: 500px;
+	background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);
+}
+
+.carousel-bg{
+	width: 100%;
+	height: 620px;
+	background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.carousel-content{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+.carousel-item{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+	max-width: 700px;
+	width: 100%;
+	/* Forzar dimensiones iguales manteniendo proporción */
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+}
+
+.carousel-img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+	background: transparent;
+}
+
+/* Botones de navegación */
+.carousel-btn{
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	border: 2px solid rgba(255,255,255,0.4);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+}
+
+.carousel-btn:hover{
+	background: rgba(255,255,255,0.3);
+	border-color: rgba(255,255,255,0.6);
+}
+
+/* Indicadores (dots) */
+.carousel-dots{
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 8px;
+	z-index: 10;
+}
+
+.dot{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.4);
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.dot.active{
+	background: #fff;
+	width: 30px;
+	border-radius: 5px;
+}
+
+/* Products layout container - left sidebar + grid */
+.products-layout{ background: var(--page-bg); }
+
+/* ensure consistent spacing inside grid area */
+.products-layout > div[style] { box-sizing: border-box }
+
+/* Small utility to limit width and center where needed */
+.center-max{ max-width: var(--max-width); margin: 0 auto }
+
+/* Responsive tweaks */
+@media (max-width: 960px){
+	.carousel-item{ width: 320px; height: 260px }
+	.pinturas-title{ font-size:32px }
+}
+
+@media (max-width: 560px){
+	.carousel-content{ flex-direction:column }
+	.carousel-item{ width: 100%; height: 220px }
+	.carousel-btn{ font-size:22px }
+	.pinturas-title{ font-size:28px }
+}
+
+/* Slight spacing at bottom so Footer doesn't overlap */
+.pinturas-root { padding-bottom: 40px }
+

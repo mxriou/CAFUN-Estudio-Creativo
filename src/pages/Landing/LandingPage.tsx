@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 import pinturasBg from '../../assets/images/pinturas1-bg.jpg';
+import Footer from '../../components/common/Footer';
 
 const galleryImages = [
     '/Gallery/gallery1.jpg',
@@ -119,55 +120,8 @@ const LandingPage: React.FC = () => {
                 </section>
 
                 {/*Footer=*/}
-                <footer className="footer-section">
-                    <div className="footer-columns">
-                        <div>
-                            <h4>Servicio al Cliente</h4>
-                            <ul>
-                                 <li><a href="">Preguntas Frecuentes (FAQ)</a></li>
-                                <li><a href="">Preguntas Frecuentes</a></li>
-                                <li><a href="">Envíos y Devoluciones</a></li>
-                                <li><a href="">Términos y Condiciones</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4>Sobre Nosotros</h4>
-                            <ul>
-                                <li>Sobre CAFUN ARTIST</li>
-                                <li>Equipo</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4>SIGUENOS</h4>
-                            <ul>
-                                <li>Instragram</li>
-                                <li>Facebook</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>INFORMACION</h4>
-                            <ul>
-                                <li>Términos y Condiciones</li>
-                                <li>Política de Privacidad</li>
-                                <li>Comercialización ICON</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div className="footer-bottom">
-                        <span>MEXICO (MXN $)</span>
-                        <span>© 2025 CAFUN ARTIST</span>
-                        <div className="footer-payments">
-                            <img src="/visa.svg" alt="Visa" />
-                            <img src="/mastercard.svg" alt="Mastercard" />
-                            <img src="/amex.svg" alt="Amex" />
-                            <img src="/paypal.svg" alt="Paypal" />
-                        </div>
-                    </div>
-                </footer>
-            </section>
+                    <Footer />
+                </section>
         </div>
     );
 };
