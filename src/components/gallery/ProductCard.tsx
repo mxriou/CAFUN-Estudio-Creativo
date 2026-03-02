@@ -24,7 +24,7 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
     const ok = onAddToCart(product.id);
     if (ok) {
       setJustAdded(true);
-      setTimeout(() => setJustAdded(false), 900);
+      setTimeout(() => setJustAdded(false), 1500);
     }
   };
 

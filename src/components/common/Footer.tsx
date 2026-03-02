@@ -64,18 +64,10 @@ const Footer: React.FC = () => {
         <div className={styles.left}>MÉXICO (MXN $)</div>
         <div className={styles.center}>© 2024 - CAFUN ARTIST</div>
         <div className={styles.right} aria-hidden>
-          <span className={styles.icon} title="Visa"> 
-            <svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="16" rx="2" fill="#0A4DA2"/></svg>
-          </span>
-          <span className={styles.icon} title="Mastercard">
-            <svg width="36" height="16" viewBox="0 0 36 16"><rect width="36" height="16" rx="2" fill="#FF5F00"/></svg>
-          </span>
-          <span className={styles.icon} title="Maestro">
-            <svg width="36" height="16" viewBox="0 0 36 16"><rect width="36" height="16" rx="2" fill="#0063A8"/></svg>
-          </span>
-          <span className={styles.icon} title="American Express">
-            <svg width="48" height="16" viewBox="0 0 48 16"><rect width="48" height="16" rx="2" fill="#2E77BB"/></svg>
-          </span>
+          <img src="/visa-logo.svg" alt="Visa" title="Visa" className={styles.cardLogo} />
+          <img src="/mastercard-logo.svg" alt="Mastercard" title="Mastercard" className={styles.cardLogo} />
+          <img src="/logo-maestro.png" alt="Maestro" title="Maestro" className={styles.cardLogo} />
+          <img src="/american-express-logo.png" alt="AmericaExpress" title="AmericaExpress" className={styles.cardLogo} />
         </div>
       </div>
     </footer>

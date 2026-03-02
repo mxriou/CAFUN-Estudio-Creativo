@@ -1,137 +1,168 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../contexts/CartContext';
 import './LandingPage.css';
 import pinturasBg from '../../assets/images/pinturas1-bg.jpg';
 import Footer from '../../components/common/Footer';
+import HeroBg from '../../assets/images/main-landing-page.svg';
 
 const galleryImages = [
-    '/Gallery/gallery1.jpg',
-    '/Gallery/gallery2.jpg',
-    '/Gallery/gallery3.jpg',
-    '/Gallery/Gallery4.jpg',
+  '/Gallery/gallery1.jpg',
+  '/Gallery/gallery2.jpg',
+  '/Gallery/gallery3.jpg',
+  '/Gallery/Gallery4.jpg',
 ];
 
 const artistas = [
-    { id: 'artista1', nombre: 'Artista 1', imagen: '/Artistas/artista1.jpg' },
-    { id: 'artista2', nombre: 'Artista 2', imagen: 'Artistas//artista2.jpg' },
-    { id: 'artista3', nombre: 'Artista 3', imagen: '/Artistas/artista3.jpg' },
-    { id: 'artista4', nombre: 'Artista 4', imagen: '/Artistas/artista4.jpg' },
-];  
+  { id: 'artista1', nombre: 'Artista 1', imagen: '/Artistas/artista1.jpg' },
+  { id: 'artista2', nombre: 'Artista 2', imagen: '/Artistas/artista2.jpg' },
+  { id: 'artista3', nombre: 'Artista 3', imagen: '/Artistas/artista3.jpg' },
+  { id: 'artista4', nombre: 'Artista 4', imagen: '/Artistas/artista4.jpg' },
+];
 
-const chamarras =[
-    { nombre: 'Chamarra de Meclilla', precio:'$4,500 MXN', imagen: '/Chamarras/chamarra1.jpg', disponibles: 8},
-    { nombre: 'Chamarra 2', precio: '$4,500 MXN', imagen: '/Chamarras/chamarra2.jpg', disponibles: 5 },
-    { nombre: 'Chamarra 3', precio: '$4,500 MXN', imagen: '/Chamarras/chamarra3.jpg', disponibles: 10 },
+const chamarras = [
+  { id: 'chamarra-landing-1', nombre: 'Chamarra de Meclilla', precio: 4500, imagen: '/Chamarras/chamarra1.jpg', disponibles: 8 },
+  { id: 'chamarra-landing-2', nombre: 'Chamarra 2', precio: 4500, imagen: '/Chamarras/chamarra2.jpg', disponibles: 5 },
+  { id: 'chamarra-landing-3', nombre: 'Chamarra 3', precio: 4500, imagen: '/Chamarras/chamarra3.jpg', disponibles: 10 },
+];
+
+const pinturas = [
+  { id: 'pintura-landing-1', nombre: 'Rosa de Media Luna', precio: 50000, imagen: '/Pinturas/pinturas1.jpg' },
 ];
 
 const LandingPage: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { addItem } = useCart();
 
-    return(
-        <div className="landing-root">
-            {/* HERO PRINCIPAL */}
-            <section className="hero-section">
-                <img src="/main-landing-page.svg" alt="Fondo Hero" className="hero-bg"/>
-                <div className="hero-content">
-                    <img src="/logo-cafun.svg" alt="Logo Cafun" className="hero-logo" />
-                </div>
-            </section>
+  const handleAddToCart = (item: { id: string; nombre: string; precio: number }) => {
+    addItem({
+      id: item.id,
+      nombre: item.nombre,
+      precio: item.precio,
+    });
+    alert(`✓ ${item.nombre} agregado al carrito`);
+  };
 
-            {/* RESTO DEL CONTENIDO agrupado */}
-            <section className="main-content">
-                {/* COLECCIÓN DESTACADA */}
-                <section className="coleccion-section">
-                    <div className="coleccion-chamarras">
-                        {
-                            chamarras.map((chamarra, index) => (
-                                <article className="chamarra-card" key={index}>
-                                    <div className="img-wrapper">
-                                        <img src={chamarra.imagen} alt={chamarra.nombre} className="chamarra-img"/>
-                                    </div>
-                                    <div className="chamarra-info">
-                                        <h3 className="chamarra-nombre">{chamarra.nombre}</h3>
-                                        <div className="chamarra-precio">{chamarra.precio}</div>
-                                        <div className="chamarra-disponibles">Disponibles: {chamarra.disponibles}</div>
-                                        <button className="chamarra-btn" onClick={() => navigate('/chamarras')}>Agregar al carrito</button>
-                                    </div>
-                                </article>
-                            ))
-                        }
-                    </div>
-                </section>
-                {/* Pinturas destacadas */}
-                <section className="pinturas-section">
-                    {/* capa de fondo: imagen + blur (no afectará al contenido) */}
-                    <div
-                        className="pinturas-bg-layer"
-                        style={{
-                            backgroundImage: `url(${pinturasBg})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat'
-                        }}
-                        aria-hidden="true"
-                    />
-                    <h2>PINTURAS</h2>
-                    <div className="pintura-destacada">
-                        <img src="/Pinturas/pinturas1.jpg" alt="Rosa de Media Luna" className="pintura-img"/>
-                        <div className="pintura-info">
-                            <div className="pintura-nombre">Rosa de Media Luna</div>
-                            <div className="pintura-precio">$50,000</div>
-                            <button className="pintura-btn" onClick={() => navigate('/pinturas')}>Ver Pinturas</button>
-                        </div>
-                    </div>
-                </section>
-                {/*Artistas*/}
-                <section className="artistas-section">
-                    <h2>ARTISTAS</h2>
-                    <div className="artistas-grid">
-                        {
-                            artistas.map((artista, index) => (
-                                <div className="artista-card" key={index}>
-                                    <img src={artista.imagen} alt={artista.nombre} />
-                                    <div className="artista-nombre">{artista.nombre}</div>
-                               </div>       
-                            ))
-                        }
-                    </div>
-                </section>
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const input = form.querySelector('input[type="email"]') as HTMLInputElement;
+    if (input && input.value) {
+      console.log('Suscripción:', input.value);
+      input.value = '';
+      alert('¡Gracias por suscribirte!');
+    }
+  };
 
-                {/*Galeria*/}
-                <section className="galeria-section">
-                    <h2>Galeria</h2>
-                    <div className="galeria-carousel">
-                        {
-                            galleryImages.map((img, index ) => (
-                                <img src={img} alt={`Galeria ${index + 1}`} key={index} className="galeria-img"/>
-                            ))
-                        }
-                    </div>
-                </section>
-                {/*Aqui puedes agregar un carrusel funcional con los puntos*/}
-                {/*Suscripcion*/}
-                <section className="suscripcion-section">
-                    <h2>SUBSCRIBIRSE</h2>
-                    <p>Suscribete para recibir las últimas noticias y eventos exclusivos.</p>
-                    <form className="suscripcion-form">
-                        <input type="email" placeholder="Tu correo electrónico" required />
-                        <button type="submit">Suscribirse</button>
-                    </form>
-                </section>
-
-                {/*Footer=*/}
-                    <Footer />
-                </section>
+  return (
+    <div className="landing-root">
+      {/* Hero Section */}
+      <section className="hero-section"
+          style={{backgroundImage: `url(${HeroBg})`}}
+        >
+        <div className="hero-content">
+          <img src="/logo-cafun.png" alt="Cafun Estudio Creativo" className="hero-logo" />
+          <button className="hero-btn" onClick={() => navigate('/colecciones')}>
+            Ver Colecciones
+          </button>
         </div>
-    );
+      </section>
+
+      {/* Chamarras Section */}
+      <section className="coleccion-chamarras">
+        <div className="section-header">
+          <h2>CHAMARRAS</h2>
+          <p>Descubre nuestras mejores chamarras</p>
+        </div>
+        <div className="chamarras-grid">
+          {chamarras.map((chamarra) => (
+            <article className="chamarra-card" key={chamarra.id}>
+              <div className="chamarra-img-wrapper">
+                <img src={chamarra.imagen} alt={chamarra.nombre} className="chamarra-img" />
+              </div>
+              <div className="chamarra-info">
+                <h3 className="chamarra-nombre">{chamarra.nombre}</h3>
+                <p className="chamarra-precio">${chamarra.precio.toLocaleString('es-MX')} MXN</p>
+                <p className="chamarra-disponibles">Disponibles: {chamarra.disponibles}</p>
+                <button 
+                  className="chamarra-btn"
+                  onClick={() => handleAddToCart({ id: chamarra.id, nombre: chamarra.nombre, precio: chamarra.precio })}
+                >
+                  Agregar al carrito
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Pinturas Section */}
+      <section className="pinturas-section">
+        <div
+          className="pinturas-bg-layer"
+          style={{
+            backgroundImage: `url(${pinturasBg})`,
+          }}
+          aria-hidden="true"
+        />
+        <div className="pinturas-content">
+          <div className="section-header">
+            <h2>PINTURAS</h2>
+            <p>Obras maestras destacadas</p>
+          </div>
+          <div className="pintura-destacada">
+            <img src="/Pinturas/pinturas1.jpg" alt="Rosa de Media Luna" className="pintura-img" />
+            <div className="pintura-info">
+              <h3 className="pintura-nombre">Rosa de Media Luna</h3>
+              <p className="pintura-precio">$50,000 MXN</p>
+              <button 
+                className="pintura-btn" 
+                onClick={() => handleAddToCart({ id: 'pintura-landing-1', nombre: 'Rosa de Media Luna', precio: 50000 })}
+              >
+                Agregar al carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Artistas Section */}
+      <section className="artistas-section">
+        <div className="section-header">
+          <h2>ARTISTAS</h2>
+          <p>Conoce a nuestros talentosos artistas</p>
+        </div>
+        <div className="artistas-grid">
+          {artistas.map((artista) => (
+            <div className="artista-card" key={artista.id}>
+              <img src={artista.imagen} alt={artista.nombre} />
+              <div className="artista-nombre">{artista.nombre}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Galería Section */}
+      <section className="galeria-section">
+        <div className="section-header">
+          <h2>GALERÍA</h2>
+          <p>Mira nuestra colección completa</p>
+        </div>
+        <div className="galeria-carousel">
+          {galleryImages.map((img, index) => (
+            <img src={img} alt={`Galería ${index + 1}`} key={index} className="galeria-img" />
+          ))}
+        </div>
+      </section>
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
 };
 
 export default LandingPage;
-
-/*
-Las imagenes deben estar dentro de public o assets y las rutas deben de coincidir 
-Para navegacion se usa useNavigate de react-router-dom
-Los botones "Agregar al carrito" y "Suscribirse" pueden conectarse a la logica real posteriormente 
-Crea el archivo LandingPage.css para los estilos personalizados 
-Puedes mejorar la galeria con un carrusel de imagenes usando una libreria como Swiper o react-slick
- */

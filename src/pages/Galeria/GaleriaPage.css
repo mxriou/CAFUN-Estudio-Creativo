@@ -1,0 +1,40 @@
+.galeria-root {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.layout {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+/* Contenedor usado por masonry */
+.gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Items para masonry */
+.galeria-item {
+  width: 200px; /* columnWidth debe coincidir con esto o ajustarse */
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0f0f0;
+}
+
+.galeria-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Footer queda al fondo gracias al layout flex */
+.galeria-root footer {
+    margin-top: auto;
+  /* Si quieres cambiar apariencia del footer sólo aquí, añade reglas */
+}

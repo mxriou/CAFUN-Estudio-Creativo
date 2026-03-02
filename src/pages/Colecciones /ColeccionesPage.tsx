@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useCart } from '../../contexts/CartContext';
 import './ColeccionesPage.css';
 import ProductGrid from '../../components/gallery/ProductGrid';
 import FilterSidebar from '../../components/gallery/FilterSidebar';
@@ -27,6 +28,7 @@ const chamarras = Array.from({ length: 9 }).map((_, idx) => {
 
 const ColeccionesPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const { addItem } = useCart();
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % chamarras.length);
@@ -38,7 +40,7 @@ const ColeccionesPage: React.FC = () => {
 
   const currentChamarra = chamarras[currentIndex];
 
-  // Productos y lógica de filtros/ordenamiento/carrito
+  // Productos y lógica de filtros/ordenamiento
   const [products, setProducts] = useState(() => chamarras);
   const [sort, setSort] = useState<string>('none');
   const [category, setCategory] = useState<string>('All');
@@ -49,15 +51,25 @@ const ColeccionesPage: React.FC = () => {
   const handleCategoryChange = (c: string) => setCategory(c);
 
   const handleAddToCart = (id: string) => {
-    let added = false;
-    setProducts((prev) => prev.map((p) => {
-      if (p.id === id && p.stock > 0) {
-        added = true;
-        return { ...p, stock: p.stock - 1 };
-      }
-      return p;
-    }));
-    return added;
+    const product = products.find(p => p.id === id);
+    if (product && product.stock > 0) {
+      // Agregar al CartContext
+      addItem({
+        id: product.id,
+        nombre: product.nombre,
+        precio: product.precio,
+      });
+      
+      // Reducir stock local
+      setProducts((prev) => prev.map((p) => {
+        if (p.id === id && p.stock > 0) {
+          return { ...p, stock: p.stock - 1 };
+        }
+        return p;
+      }));
+      return true;
+    }
+    return false;
   };
 
   // Aplicar filtros y ordenamientos sin recargar la página

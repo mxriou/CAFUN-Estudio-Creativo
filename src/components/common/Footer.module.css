@@ -1,3 +1,8 @@
+/*Aboreto*/
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Afacad:ital,wght@0,400..700;1,400..700&family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/*Albert Sans*/
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .footer {
   background: #ffffff;
   color: #111;
@@ -6,14 +11,14 @@
 }
 
 .subscribe { text-align: center; max-width: 980px; margin: 0 auto 28px; }
-.title { font-family: Georgia, 'Times New Roman', serif; font-size: 48px; letter-spacing: 2px; margin: 6px 0; }
-.subtitle { color: #444; font-size: 14px; margin: 6px 0 18px; }
+.title { font-family: 'Aboreto', 'Times New Roman', serif; font-size: 48px; letter-spacing: 2px; margin: 6px 0; }
+.subtitle { font-family: 'Afacad';color: #444; font-size: 14px; margin: 6px 0 18px; }
 .rule { width: 160px; height: 1px; background: #e6e6e6; border: none; margin: 14px auto; }
 
 .form { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:8px; }
 .input { border: none; border-bottom: 1px solid #ddd; padding: 10px 12px; width: 320px; font-size:14px; outline:none }
 .input:focus { border-bottom-color: #aaa }
-.subscribeBtn { background: #000; color:#fff; border: none; padding: 10px 22px; cursor:pointer; font-weight:600; transition: transform .14s ease, box-shadow .14s ease }
+.subscribeBtn { font-family:'Albert Sans';background: #000; color:#fff; border: none; padding: 10px 22px; cursor:pointer; font-weight:600; transition: transform .14s ease, box-shadow .14s ease }
 .subscribeBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.08) }
 
 .srOnly { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
@@ -21,17 +26,24 @@
 .divider { border: none; height:1px; background:#f0f0f0; margin:28px 0 }
 
 .columns { display:grid; grid-template-columns: repeat(4, 1fr); gap: 28px; max-width:1100px; margin: 0 auto; padding: 8px 12px 40px }
-.colTitle { font-size:13px; letter-spacing:1px; margin-bottom:12px }
-.list { list-style:none; padding:0; margin:0 }
+.colTitle { font-family:'Afacad'; font-size:13px; letter-spacing:1px; margin-bottom:12px }
+.list { font-family: 'Afacad'; list-style:none; padding:0; margin:0; font-size:19px; }
 .list li { margin-bottom:10px }
 .list a { color:#111; text-decoration:none; font-size:14px }
 .list a:hover { color:#444; text-decoration:underline; opacity:0.9 }
 
 .bottom { display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin: 0 auto; padding: 18px 12px }
-.left { font-size:13px; letter-spacing:0.6px }
-.center { font-size:13px; color:#777 }
+.left { font-family: 'Afacad'; font-weight: 700; font-size:13px; letter-spacing:0.6px }
+.center { font-family: 'Afacad'; font-size:12px; color:#777 }
 .right { display:flex; gap:12px; align-items:center }
 .icon { display:inline-block; width:48px; height:20px }
+
+/* logo específico para imágenes alojadas en /public */
+.cardLogo { display:inline-block; width:36px; height:16px }
+.cardLogo { object-fit: contain }
+
+/* Clase para usar logos desde /public manteniendo las dimensiones del SVG original */
+.cardLogo { display:inline-block; width:36px; height:16px; object-fit:contain }
 
 @media (max-width: 960px) {
   .columns { grid-template-columns: repeat(2, 1fr); padding-bottom:32px }

@@ -2,7 +2,6 @@
   Da la estructura de la UI
 */
 import React from 'react';
-import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Esto significa que estamos importando el componente BrowserRouter y lo estamos renombrando como Router
 import './App.css';
 
@@ -32,6 +31,7 @@ import Footer from './components/common/Footer';
 const App: React.FC = () =>  {
   return (
     <Router>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/pinturas" element={<PinturasPage />}/>
@@ -40,7 +40,6 @@ const App: React.FC = () =>  {
         <Route path="/nosotros" element={<NosotrosPage />} />
         <Route path="/colecciones" element={<ColeccionesPage />} />
       </Routes>
-  <Navbar/>
     </Router>
   );
 }

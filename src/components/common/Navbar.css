@@ -110,6 +110,7 @@
 
 /* Menú principal */
 .navbar-menu {
+    font-family: 'Aboreto';
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -226,6 +227,119 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
+}
+
+/* Dropdown del carrito */
+.cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    min-width: 350px;
+    animation: slideDown 0.3s ease;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+.cart-empty {
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+}
+
+.cart-row-info {
+    flex: 1;
+}
+
+.cart-row-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.cart-row-qty {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.cart-remove {
+    background: none;
+    border: none;
+    color: #ff4757;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    padding: 0.25rem 0.5rem;
+}
+
+.cart-remove:hover {
+    color: #ff3838;
+    text-decoration: underline;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cart-view-btn,
+.cart-checkout-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-view-btn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.cart-view-btn:hover {
+    background: #e0e0e0;
+}
+
+.cart-checkout-btn {
+    background: #667eea;
+    color: white;
+}
+
+.cart-checkout-btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
 }
 
 /* Animaciones */
