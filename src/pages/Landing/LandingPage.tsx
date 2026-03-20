@@ -10,7 +10,7 @@ const galleryImages = [
   '/Gallery/gallery1.jpg',
   '/Gallery/gallery2.jpg',
   '/Gallery/gallery3.jpg',
-  '/Gallery/Gallery4.jpg',
+  '/Gallery/gallery4.jpg',
 ];
 
 const artistas = [
@@ -57,9 +57,8 @@ const LandingPage: React.FC = () => {
   return (
     <div className="landing-root">
       {/* Hero Section */}
-      <section className="hero-section"
-          style={{backgroundImage: `url(${HeroBg})`}}
-        >
+      <section className="hero-section">
+        <div className="hero-bg-layer" style={{backgroundImage: `url(${HeroBg})`}} aria-hidden="true" />
         <div className="hero-content">
           <img src="/logo-cafun.png" alt="Cafun Estudio Creativo" className="hero-logo" />
           <button className="hero-btn" onClick={() => navigate('/colecciones')}>

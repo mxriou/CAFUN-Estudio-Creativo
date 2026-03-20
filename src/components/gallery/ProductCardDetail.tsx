@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductCard.css';
+import './ProductCardDetail.css';
 
 interface ProductCardProps {
   id: number;

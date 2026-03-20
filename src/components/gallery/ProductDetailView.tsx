@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ProductDetail.css';
+import './ProductDetailView.css';
 
 interface ProductDetailProps {
   product: {

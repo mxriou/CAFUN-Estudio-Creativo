@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Est
 import './App.css';
 
 import LandingPage from './pages/Landing/LandingPage';
-import ArtistasPage from "./pages/Artistas /ArtistasPage";
-import ColeccionesPage from './pages/Colecciones /ColeccionesPage';
+import ArtistasPage from "./pages/Artistas/ArtistasPage";
+import ColeccionesPage from './pages/Colecciones/ColeccionesPage';
 import GaleriaPage from "./pages/Galeria/GaleriaPage";
 import NosotrosPage from "./pages/Nosotros/NosotrosPage";
-import PinturasPage from "./pages/Pinturas /PinturasPage";
+import PinturasPage from "./pages/Pinturas/PinturasPage";
 
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
@@ -30,7 +30,7 @@ import Footer from './components/common/Footer';
 */
 const App: React.FC = () =>  {
   return (
-    <Router>
+    <Router> {/*Activa el sistema de rutas*/}
       <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>

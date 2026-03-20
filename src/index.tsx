@@ -8,6 +8,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from './contexts/CartContext';
  
+/**
+ * Creates a React root element for rendering the application.
+ * @remarks
+ * The root element is obtained from the DOM using `document.getElementById('root')`.
+ * This assumes that an HTML element with id="root" exists in the index.html file.
+ * @throws {Error} If the element with id 'root' is not found in the DOM.
+ */
 const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
