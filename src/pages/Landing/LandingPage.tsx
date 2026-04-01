@@ -21,9 +21,9 @@ const artistas = [
 ];
 
 const chamarras = [
-  { id: 'chamarra-landing-1', nombre: 'Chamarra de Meclilla', precio: 4500, imagen: '/Chamarras/chamarra1.jpg', disponibles: 8 },
-  { id: 'chamarra-landing-2', nombre: 'Chamarra 2', precio: 4500, imagen: '/Chamarras/chamarra2.jpg', disponibles: 5 },
-  { id: 'chamarra-landing-3', nombre: 'Chamarra 3', precio: 4500, imagen: '/Chamarras/chamarra3.jpg', disponibles: 10 },
+  { id: 'chamarra-landing-1', nombre: 'Chamarra de Meclilla', precio: 4500, imagen: '/Chamarras/chamarra1.png', disponibles: 8 },
+  { id: 'chamarra-landing-2', nombre: 'Chamarra 2', precio: 4500, imagen: '/Chamarras/chamarra2.png', disponibles: 5 },
+  { id: 'chamarra-landing-3', nombre: 'Chamarra 3', precio: 4500, imagen: '/Chamarras/chamarra3.png', disponibles: 10 },
 ];
 
 const pinturas = [
@@ -82,7 +82,7 @@ const LandingPage: React.FC = () => {
               <div className="chamarra-info">
                 <h3 className="chamarra-nombre">{chamarra.nombre}</h3>
                 <p className="chamarra-precio">${chamarra.precio.toLocaleString('es-MX')} MXN</p>
-                <p className="chamarra-disponibles">Disponibles: {chamarra.disponibles}</p>
+                <p className="chamarra-disponibles">{chamarra.disponibles} DISPONIBLES</p>
                 <button 
                   className="chamarra-btn"
                   onClick={() => handleAddToCart({ id: chamarra.id, nombre: chamarra.nombre, precio: chamarra.precio })}
