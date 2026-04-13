@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Afacad:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Julius+Sans+One&display=swap');
 
-/* Landing Page Styles */
+/* ========================================
+   LANDING PAGE STYLES
+   ======================================== */
 
+/* Global Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +16,11 @@
   width: 100%;
 }
 
-/* Hero Section */
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/* Contenedor principal de la sección hero con imagen de fondo */
 .hero-section {
   position: sticky;
   top: 0;
@@ -32,6 +39,7 @@
   margin-top: 100px;
 }
 
+/* Capa de fondo borrosa para el hero */
 .hero-bg-layer {
   position: absolute;
   inset: 0;
@@ -43,38 +51,8 @@
   z-index: 0;
 }
 
-/* Responsive Heights */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 350px;
-  }
-  
-  .hero-logo {
-    width: 250px;
-  }
-  
-  .hero-btn {
-    padding: 14px 35px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 250px;
-  }
-  
-  .hero-logo {
-    width: 180px;
-  }
-  
-  .hero-btn {
-    padding: 12px 30px;
-    font-size: 0.95rem;
-  }
-}
-
-.hero-content{
+/* Contenido del hero (logo y botón) */
+.hero-content {
   position: relative;
   z-index: 1;
   max-width: 100%;
@@ -86,11 +64,13 @@
   gap: 30px;
 }
 
+/* Animación de fade-in para elementos del hero */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
+/* Logo del hero */
 .hero-logo {
   width: 900px;
   height: auto;
@@ -99,6 +79,7 @@
   animation: fadeIn 900ms ease-in-out both;
 }
 
+/* Efecto antes del botón hero */
 .hero-btn::before {
   content: '';
   position: absolute;
@@ -112,6 +93,7 @@
   transform: translateY(-8%);
 }
 
+/* Botón del hero (CTA principal) */
 .hero-btn {
   position: relative;
   display: inline-flex;
@@ -136,6 +118,7 @@
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* Hover del botón hero */
 .hero-btn:hover {
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
@@ -144,7 +127,11 @@
   text-shadow: 1px 1px 2px #427388;
 }
 
-/* Section Header */
+/* ========================================
+   SECTION HEADER (General para todas las secciones)
+   ======================================== */
+
+/* Encabezado común de secciones (título y descripción) */
 .section-header {
   text-align: center;
   margin-bottom: 50px;
@@ -165,7 +152,11 @@
   font-family: 'Afacad', sans-serif;
 }
 
-/* Chamarras Section */
+/* ========================================
+   CHAMARRAS SECTION
+   ======================================== */
+
+/* Contenedor de la sección de chamarras con fondo gris y overlays decorativos */
 .coleccion-chamarras {
   position: relative;
   z-index: 1;
@@ -174,32 +165,9 @@
   overflow: hidden;
 }
 
-.coleccion-chamarras::before,
-.coleccion-chamarras::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  width: 260px;
-  height: 180px;
-  opacity: 0.5;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
-.coleccion-chamarras::before {
-  top: 20px;
-  left: -30px;
-  transform: rotate(-8deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M10 80 C40 10 60 10 90 80 S170 80 190 15' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E");
-}
 
-.coleccion-chamarras::after {
-  bottom: 10px;
-  right: -20px;
-  transform: rotate(12deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M20 20 C60 50 90 0 120 40 S180 10 190 60' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E");
-}
-
+/* Grid de productos chamarras */
 .chamarras-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -208,9 +176,10 @@
   margin: 0 auto;
 }
 
+/* Tarjeta individual de chamarra */
 .chamarra-card {
-  background: #fafafa;
-  border: 1px solid #ddd;
+  background: transparent;
+  border: 2px solid #ddd;
   border-radius: 0;
   overflow: hidden;
   box-shadow: none;
@@ -218,21 +187,30 @@
   flex-direction: column;
 }
 
+/* Contenedor de imagen de chamarra */
 .chamarra-img-wrapper {
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: #f5f5f5;
+  background: transparent;
 }
 
+/* Imagen de chamarra */
 .chamarra-img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background-color: transparent; /* Color de fondo si hay espacios */
+  transition: transform 0.3s ease;
 }
 
+.chamarra-img:hover {
+  transform: scale(1.1);
+}
+
+/* Información de la chamarra (texto y botón) */
 .chamarra-info {
   padding: 20px;
   display: flex;
@@ -241,17 +219,13 @@
   text-align: center;
 }
 
-.chamarra-nombre,
-.chamarra-precio,
-.chamarra-disponibles {
+/* Nombre de la chamarra */
+.chamarra-nombre {
   font-family: 'Afacad', sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 5px 0;
-}
-
-.chamarra-nombre {
   font-weight: 700;
   color: #222;
   white-space: nowrap;
@@ -260,71 +234,60 @@
   width: 100%;
 }
 
+/* Precio de la chamarra */
 .chamarra-precio {
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 5px 0;
   font-weight: 400;
   color: #333;
 }
 
+/* Disponibilidad de la chamarra */
 .chamarra-disponibles {
+  font-family: 'Afacad', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 5px 0;
   font-weight: 700;
   color: #000;
 }
 
+/* Botón de agregar al carrito en chamarra */
 .chamarra-btn {
   margin-top: 10px;
   padding: 10px 14px;
   background: transparent;
+  color: #111;
   border: 1px solid #111;
   border-radius: 0;
+  font-size: 13px;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 200ms ease-in-out;
-
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 10px;
-  font-size: 13px;
-  text-transform: uppercase;
-  color: #111;
+  font-family: 'Afacad', sans-serif;
 }
 
+/* Hover del botón chamarra */
 .chamarra-btn:hover {
   background: rgba(0, 0, 0, 0.04);
   transform: none;
 }
 
-.chamarra-nombre {
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-family: 'Aboreto', serif;
-}
+/* ========================================
+   PINTURAS SECTION
+   ======================================== */
 
-.chamarra-precio {
-  font-size: 1.5rem;
-  color: #667eea;
-  font-weight: 700;
-  margin-bottom: 8px;
-  font-family: 'Aboreto', serif;
-}
-
-.chamarra-disponibles {
-  font-size: 0.95rem;
-  color: #999;
-  margin-bottom: 15px;
-  font-family: 'Afacad', sans-serif;
-}
-
-
-.chamarra-btn:hover {
-  background: #764ba2;
-  transform: scale(1.05);
-}
-
-/* Pinturas Section */
+/* Contenedor de la sección de pinturas */
 .pinturas-section {
   position: relative;
   z-index: 1;
@@ -336,6 +299,7 @@
   overflow: hidden;
 }
 
+/* Capa de fondo para pinturas */
 .pinturas-bg-layer {
   position: absolute;
   top: 0;
@@ -348,6 +312,7 @@
   z-index: -1;
 }
 
+/* Contenido de pinturas */
 .pinturas-content {
   max-width: 1200px;
   width: 100%;
@@ -362,6 +327,7 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Pintura destacada */
 .pintura-destacada {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -373,17 +339,20 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Imagen de pintura */
 .pintura-img {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
+/* Información de pintura */
 .pintura-info {
   display: flex;
   flex-direction: column;
 }
 
+/* Nombre de pintura */
 .pintura-nombre {
   font-size: 2rem;
   color: #333;
@@ -392,6 +361,7 @@
   font-family: 'Aboreto', serif;
 }
 
+/* Precio de pintura */
 .pintura-precio {
   font-size: 1.8rem;
   color: #667eea;
@@ -400,6 +370,7 @@
   font-family: 'Aboreto', serif;
 }
 
+/* Botón de pintura */
 .pintura-btn {
   padding: 15px 30px;
   background: #667eea;
@@ -419,7 +390,11 @@
   transform: scale(1.05);
 }
 
-/* Artistas Section */
+/* ========================================
+   ARTISTAS SECTION
+   ======================================== */
+
+/* Contenedor de la sección de artistas */
 .artistas-section {
   position: relative;
   z-index: 1;
@@ -427,6 +402,7 @@
   background: white;
 }
 
+/* Grid de artistas */
 .artistas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -435,6 +411,7 @@
   margin: 0 auto;
 }
 
+/* Tarjeta de artista */
 .artista-card {
   text-align: center;
   cursor: pointer;
@@ -455,6 +432,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Nombre de artista */
 .artista-nombre {
   font-size: 1.3rem;
   color: #333;
@@ -463,7 +441,11 @@
   font-family: 'Aboreto', serif;
 }
 
-/* Galería Section */
+/* ========================================
+   GALERÍA SECTION
+   ======================================== */
+
+/* Contenedor de la sección de galería */
 .galeria-section {
   position: relative;
   z-index: 1;
@@ -471,6 +453,7 @@
   background: #f9f9f9;
 }
 
+/* Carrusel de galería */
 .galeria-carousel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -479,6 +462,7 @@
   margin: 0 auto;
 }
 
+/* Imagen de galería */
 .galeria-img {
   width: 100%;
   height: 250px;
@@ -494,7 +478,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Suscripción Section */
+/* ========================================
+   SUSCRIPCIÓN SECTION
+   ======================================== */
+
+/* Contenedor de la sección de suscripción */
 .suscripcion-section {
   padding: 80px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -510,6 +498,7 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Formulario de suscripción */
 .suscripcion-form {
   display: flex;
   gap: 10px;
@@ -548,12 +537,19 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.landing-root footer{
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.landing-root footer {
   position: relative;
   z-index: 1;
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 768px) {
   .hero-section {
     height: 400px;
