@@ -1,10 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
 import './LandingPage.css';
 import pinturasBg from '../../assets/images/pinturas1-bg.jpg';
 import Footer from '../../components/common/Footer';
 import HeroBg from '../../assets/images/main-landing-page.svg';
+import WinterCollection from '../../components/common/WinterCollection';
 
 const galleryImages = [
   '/Gallery/gallery1.jpg',
@@ -60,16 +61,21 @@ const LandingPage: React.FC = () => {
       <section className="hero-section">
         <div className="hero-bg-layer" style={{backgroundImage: `url(${HeroBg})`}} aria-hidden="true" />
         <div className="hero-content">
-          <img src="/logo-cafun.png" alt="Cafun Estudio Creativo" className="hero-logo" />
+          <img src="/logo-cafun.png" alt="Cafun Estudio Creativo" className="hero-logo" onClick={() => { window.scrollTo(0, 0); navigate('/'); }} style={{ cursor: 'pointer' }} />
           <button className="hero-btn" onClick={() => navigate('/colecciones')}>
             Ver Colecciones
           </button>
         </div>
       </section>
 
+      {/* Winter Collection Banner */}
+      <section className="black-box-coleccion">
+      </section>
+      <WinterCollection />
+
       {/* Chamarras Section */}
       <section className="coleccion-chamarras">
-        <div className="section-header">
+        <div className="section-header" onClick={() => { window.scrollTo(0, 0); navigate('/colecciones'); }} style={{ cursor: 'pointer' }}>
           <h2>CHAMARRAS</h2>
           <p>Descubre nuestras mejores chamarras</p>
         </div>
@@ -110,7 +116,7 @@ const LandingPage: React.FC = () => {
           aria-hidden="true"
         />
         <div className="pinturas-content">
-          <div className="section-header">
+          <div className={'section-header pinturas-header'} onClick={() => { window.scrollTo(0, 0); navigate('/pinturas'); }} style={{ cursor: 'pointer' }}>
             <h2>PINTURAS</h2>
             <p>Obras maestras destacadas</p>
           </div>
@@ -132,23 +138,28 @@ const LandingPage: React.FC = () => {
 
       {/* Artistas Section */}
       <section className="artistas-section">
-        <div className="section-header">
-          <h2>ARTISTAS</h2>
-          <p>Conoce a nuestros talentosos artistas</p>
+        <div className="artistas-header-block">
+          <h2 className="artistas-title" onClick={() => { window.scrollTo(0, 0); navigate('/artistas'); }} style={{ cursor: 'pointer' }}>ARTISTAS</h2>
+          <div className="artistas-names-bar">
+            {artistas.map((a) => (
+              <Link key={a.id} to={`/artistas/`} className="artistas-name-label">
+                {a.nombre}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="artistas-grid">
-          {artistas.map((artista) => (
-            <div className="artista-card" key={artista.id}>
+        <div className="artistas-masonry">
+          {artistas.map((artista, i) => (
+            <Link to="" className={`artista-cell artista-cell-${i + 1}`} key={artista.id}>
               <img src={artista.imagen} alt={artista.nombre} />
-              <div className="artista-nombre">{artista.nombre}</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
       {/* Galería Section */}
       <section className="galeria-section">
-        <div className="section-header">
+        <div className="section-header" onClick={() => { window.scrollTo(0, 0); navigate('/galeria'); }} style={{ cursor: 'pointer' }}>
           <h2>GALERÍA</h2>
           <p>Mira nuestra colección completa</p>
         </div>
