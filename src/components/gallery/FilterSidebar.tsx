@@ -9,41 +9,45 @@ type Props = {
   onSortChange: (s: string) => void;
 };
 
+const sortOptions = [
+  { value: 'latest', label: 'Últimos lanzamientos' },
+  { value: 'priceAsc', label: 'Precio: Menor → Mayor' },
+  { value: 'priceDesc', label: 'Precio: Mayor → Menor' },
+];
+
 const FilterSidebar: React.FC<Props> = ({ categories, selectedCategory, onCategoryChange, sort, onSortChange }) => {
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.block}>
-        <h4 className={styles.title}>Ordenar</h4>
-        <label className={styles.option}>
-          <input type="radio" name="sort" checked={sort === 'none'} onChange={() => onSortChange('none')} />
-          Más relevante
-        </label>
-        <label className={styles.option}>
-          <input type="radio" name="sort" checked={sort === 'priceAsc'} onChange={() => onSortChange('priceAsc')} />
-          Precio: menor → mayor
-        </label>
-        <label className={styles.option}>
-          <input type="radio" name="sort" checked={sort === 'priceDesc'} onChange={() => onSortChange('priceDesc')} />
-          Precio: mayor → menor
-        </label>
-        <label className={styles.option}>
-          <input type="radio" name="sort" checked={sort === 'latest'} onChange={() => onSortChange('latest')} />
-          Últimos lanzamientos
-        </label>
+      <div className={styles.header}>
+        <span>Filtrar</span>
+        <span>⚙</span>
       </div>
 
       <div className={styles.block}>
-        <h4 className={styles.title}>Categorías</h4>
-        <ul className={styles.list}>
-          <li>
-            <button className={`${styles.catBtn} ${selectedCategory === 'All' ? styles.active : ''}`} onClick={() => onCategoryChange('All')}>Todas</button>
-          </li>
-          {categories.map((c) => (
-            <li key={c}>
-              <button className={`${styles.catBtn} ${selectedCategory === c ? styles.active : ''}`} onClick={() => onCategoryChange(c)}>{c}</button>
-            </li>
-          ))}
-        </ul>
+        {sortOptions.map((opt) => (
+          <button
+            key={opt.value}
+            className={`${styles.filterBtn} ${sort === opt.value ? styles.active : ''}`}
+            onClick={() => onSortChange(opt.value)}
+          >
+            {sort === opt.value && <span className={styles.bullet}>•&nbsp;</span>}
+            {opt.label}
+          </button>
+        ))}
+      </div>
+
+      <hr className={styles.divider} />
+
+      <div className={styles.block}>
+        {categories.map((c) => (
+          <button
+            key={c}
+            className={`${styles.filterBtn} ${selectedCategory === c ? styles.active : ''}`}
+            onClick={() => onCategoryChange(c)}
+          >
+            {c}
+          </button>
+        ))}
       </div>
     </aside>
   );

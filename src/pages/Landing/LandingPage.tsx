@@ -6,6 +6,7 @@ import pinturasBg from '../../assets/images/pinturas1-bg.jpg';
 import Footer from '../../components/common/Footer';
 import HeroBg from '../../assets/images/main-landing-page.svg';
 import WinterCollection from '../../components/common/WinterCollection';
+import GaleriaCoverflow from '../../components/common/GaleriaCoverflow';
 
 const galleryImages = [
   '/Gallery/gallery1.jpg',
@@ -22,9 +23,9 @@ const artistas = [
 ];
 
 const chamarras = [
-  { id: 'chamarra-landing-1', nombre: 'Chamarra de Meclilla', precio: 4500, imagen: '/Chamarras/chamarra1.png', disponibles: 8 },
-  { id: 'chamarra-landing-2', nombre: 'Chamarra 2', precio: 4500, imagen: '/Chamarras/chamarra2.png', disponibles: 5 },
-  { id: 'chamarra-landing-3', nombre: 'Chamarra 3', precio: 4500, imagen: '/Chamarras/chamarra3.png', disponibles: 10 },
+  { id: 'chamarra-landing-1', slug: 'chamarra-mezclilla', nombre: 'Chamarra de Mezclilla', precio: 4500, imagen: '/Chamarras/chamarra1.png', disponibles: 8 },
+  { id: 'chamarra-landing-2', slug: 'chamarra-2', nombre: 'Chamarra 2', precio: 4500, imagen: '/Chamarras/chamarra2.png', disponibles: 5 },
+  { id: 'chamarra-landing-3', slug: 'chamarra-3', nombre: 'Chamarra 3', precio: 4500, imagen: '/Chamarras/chamarra3.png', disponibles: 10 },
 ];
 
 const pinturas = [
@@ -82,9 +83,11 @@ const LandingPage: React.FC = () => {
         <div className="chamarras-grid">
           {chamarras.map((chamarra) => (
             <article className="chamarra-card" key={chamarra.id}>
-              <div className="chamarra-img-wrapper">
-                <img src={chamarra.imagen} alt={chamarra.nombre} className="chamarra-img" />
-              </div>
+              <Link to={`/producto/${chamarra.slug}`} onClick={() => window.scrollTo(0, 0)}>
+                <div className="chamarra-img-wrapper">
+                  <img src={chamarra.imagen} alt={chamarra.nombre} className="chamarra-img" />
+                </div>
+              </Link>
               <div className="chamarra-info">
                 <h3 className="chamarra-nombre">{chamarra.nombre}</h3>
                 <p className="chamarra-precio">${chamarra.precio.toLocaleString('es-MX')} MXN</p>
@@ -115,13 +118,15 @@ const LandingPage: React.FC = () => {
           }}
           aria-hidden="true"
         />
-        <div className="pinturas-content">
-          <div className={'section-header pinturas-header'} onClick={() => { window.scrollTo(0, 0); navigate('/pinturas'); }} style={{ cursor: 'pointer' }}>
+        <div className={'pinturas-header'} onClick={() => { window.scrollTo(0, 0); navigate('/pinturas'); }} style={{ cursor: 'pointer' }}>
             <h2>PINTURAS</h2>
             <p>Obras maestras destacadas</p>
-          </div>
+        </div>
+        <div className="pinturas-content">
           <div className="pintura-destacada">
-            <img src="/Pinturas/pinturas1.jpg" alt="Rosa de Media Luna" className="pintura-img" />
+            <Link to="/producto/rosa-de-media-luna" onClick={() => window.scrollTo(0, 0)}>
+              <img src="/Pinturas/pinturas1.jpg" alt="Rosa de Media Luna" className="pintura-img" />
+            </Link>
             <div className="pintura-info">
               <h3 className="pintura-nombre">Rosa de Media Luna</h3>
               <p className="pintura-precio">$50,000 MXN</p>
@@ -163,11 +168,7 @@ const LandingPage: React.FC = () => {
           <h2>GALERÍA</h2>
           <p>Mira nuestra colección completa</p>
         </div>
-        <div className="galeria-carousel">
-          {galleryImages.map((img, index) => (
-            <img src={img} alt={`Galería ${index + 1}`} key={index} className="galeria-img" />
-          ))}
-        </div>
+        <GaleriaCoverflow images={galleryImages} />
       </section>
       {/* Footer */}
       <Footer />

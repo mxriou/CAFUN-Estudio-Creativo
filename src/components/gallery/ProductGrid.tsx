@@ -4,6 +4,7 @@ import styles from './ProductGrid.module.css';
 
 type Product = {
   id: string;
+  slug: string;
   nombre: string;
   path: string;
   precio: number;

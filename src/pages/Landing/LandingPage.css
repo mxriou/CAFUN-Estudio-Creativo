@@ -302,31 +302,43 @@
 .pinturas-section {
   position: relative;
   z-index: 1;
-  padding: 80px 40px;
+  padding: 80px 140px;
   min-height: 500px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   overflow: hidden;
 }
 
 .pinturas-header{
-  margin-left: 0;
+  text-align: left;
+  margin-bottom: 50px;
+  width: fit-content;
 }
 
 
 .pinturas-header h2{
-  font-size: 2.5rem;
-  margin-bottom: 0px;
+  font-size: 2.8rem;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-family: 'Aboreto', serif;
 }
 
+/*
 .pinturas-content .section-header {
   text-align: left;
   margin-left: 100px;
 }
+*/
 
 .pinturas-header p{
-  font-size:1.6rem;
+  font-size:1.1rem;
+  color: white;
+  font-weight: 300;
+  font-family: 'Afacad', serif;
+
 }
 
 /* Capa de fondo para pinturas */
@@ -396,7 +408,7 @@
 
 /* Nombre de pintura */
 .pintura-nombre {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
   color: white;
   margin-bottom: 5px;
   font-weight: 700;
@@ -405,7 +417,7 @@
 
 /* Precio de pintura */
 .pintura-precio {
-  font-size: 1.8rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
   color: white;
   font-weight: 700;
   margin-bottom: 25px;
@@ -420,7 +432,7 @@
   color: #fff;
   border: 1px solid #fff;
   border-radius: 0;
-  font-size: 22px;
+  font-size: clamp(14px, 1.7vw, 22px);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -668,6 +680,17 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
+    width: 100%;
+  }
+
+  .pintura-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .pintura-info {
+    padding-left: 0;
+    align-items: center;
   }
 
   .pintura-nombre {
@@ -757,8 +780,15 @@
     height: 200px;
   }
 
+  .pintura-img {
+    width: 100%;
+    height: auto;
+  }
+
   .pintura-info {
+    padding-left: 0;
     padding-top: 10px;
+    align-items: center;
   }
 
   .pintura-nombre {

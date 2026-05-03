@@ -1,186 +1,243 @@
-.colecciones-container{
-    color: black; 
-    padding: 0;
-    margin-top: 150px;
+/* ---- Container ---- */
+.colecciones-container {
+  padding-top: 100px;
+  background: #fff;
 }
 
-/* Hero section - sin background oscuro */
-.colecciones-hero{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
+/* ---- Hero ---- */
+.colecciones-hero {
+  padding: 37px 40px 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-/* Título con Helvetica Neue */
-.colecciones-title{
-    color: #000;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 3rem;
-    margin: 0 0 40px 0;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 300;
+.colecciones-title {
+  font-family: 'Aboreto', sans-serif;
+  font-size: clamp(2rem, 5vw, 55px);
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1;
 }
 
-/* Controles - ocultos */
-.colecciones-controls{
-    display: none;
+/* ---- Carrusel ---- */
+.carousel-section {
+  width: 100%;
+  margin-top: 24px;
 }
 
-/* Carrusel: fondo full-width 500px de altura con color guinda */
-.carousel-section{
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    height: 500px;
-    background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);
+.carousel-bg {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, #2a0a2a 0%, #5a1035 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.carousel-bg{
-    width: 100%;
-    height: 620px;
-    background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.carousel-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
-.carousel-content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    padding: 0 20px;
-    box-sizing: border-box;
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 500px;
+  height: 100%;
 }
 
-.carousel-item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    max-width: 600px;
+.carousel-img {
+  max-height: 360px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 12px 36px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s ease;
 }
 
-.carousel-img{
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
+.carousel-item:hover .carousel-img {
+  transform: scale(1.1);
 }
 
-/* Botones de navegación */
-.carousel-btn{
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.4);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+.carousel-nombre {
+  color: #fff;
+  font-family: 'Aboreto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 16px 0 4px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.carousel-btn:hover{
-    background: rgba(255,255,255,0.3);
-    border-color: rgba(255,255,255,0.6);
+.carousel-precio {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
 }
 
-/* Indicadores (dots) */
-.carousel-dots{
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
+.carousel-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 2.4rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+  padding: 0 8px;
 }
 
-.dot{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.carousel-btn:hover {
+  opacity: 1;
 }
 
-.dot.active{
-    background: #fff;
-    width: 30px;
-    border-radius: 5px;
+/* ---- "CHAMARRAS" heading ---- */
+.chamarras-heading {
+  font-family: 'Aboreto', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #000;
+  letter-spacing: 0.15em;
+  margin: 48px 0 24px;
 }
 
-/* Información de la chamarra */
-.chamarra-info{
-    text-align: center;
-    padding: 20px;
-    color: #000;
-    /*background: #fff;*/
+/* ---- Products layout ---- */
+.products-layout {
+  display: flex;
+  gap: 0;
+  padding: 0 40px 60px;
+  background: #ffffff;
 }
 
-.chamarra-info h2{
-    font-size: 1.5rem;
-    margin: 10px 0 5px 0;
-    letter-spacing: 2px;
-    color: #000;
+.products-sidebar {
+  flex: 0 0 200px;
 }
 
-.chamarra-info p{
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
+.products-main {
+  flex: 1;
+  min-width: 0;
 }
 
-/* Responsive */
-@media (max-width: 900px){
-    .carousel-bg{
-        height: 600px;
-    }
-    .carousel-content{
-        gap: 20px;
-    }
-    .carousel-btn{
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    .colecciones-title{
-        font-size: 2.4rem;
-    }
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 0 16px;
 }
 
-@media (max-width: 600px){
-    .carousel-section{
-        height: auto;
-    }
-    .carousel-bg{
-        height: 350px;
-    }
-    .carousel-content{
-        gap: 15px;
-    }
-    .carousel-btn{
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    .colecciones-title{
-        font-size: 2rem;
-    }
-    .carousel-dots{
-        bottom: 10px;
-    }
+.page-arrow {
+  background: transparent;
+  border: none;
+  color: #444;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.page-arrow:hover:not(:disabled) {
+  color: #000;
+}
+
+.page-arrow:disabled {
+  color: #ddd;
+  cursor: default;
+}
+
+.page-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.page-dot--active {
+  background: #000;
+}
+
+/* ---- Subscribe ---- */
+.colecciones-subscribe {
+  background: #f5f5f5;
+  padding: 60px 40px;
+  text-align: center;
+  border-top: 1px solid #e8e8e8;
+}
+
+.colecciones-subscribe .subscribe-titulo {
+  font-family: Georgia, 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 16px;
+}
+
+.colecciones-subscribe .subscribe-subtitulo {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.colecciones-subscribe .subscribe-hr {
+  width: 200px;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 auto 28px;
+}
+
+.colecciones-subscribe .subscribe-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 180px;
+  letter-spacing: 0.05em;
+  transition: background 200ms ease;
+}
+
+.colecciones-subscribe .subscribe-btn:hover {
+  background: #333;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .carousel-bg { height: 380px; }
+  .carousel-img { max-height: 260px; }
+  .products-layout { padding: 0 20px 40px; }
+  .colecciones-hero { padding: 40px 20px 0; }
+}
+
+@media (max-width: 600px) {
+  .colecciones-hero { padding: 32px 16px 0; }
+  .carousel-bg { height: 300px; }
+  .carousel-img { max-height: 200px; }
+  .products-layout { flex-direction: column; padding: 0 16px 32px; }
+  .products-sidebar { flex: none; width: 100%; }
+  .chamarras-heading { font-size: 22px; }
+  .colecciones-subscribe .subscribe-titulo { font-size: 2.5rem; }
 }

@@ -26,7 +26,7 @@
 .carousel-bg{
 	width: 100%;
 	height: 620px;
-	background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);
+	/*background: linear-gradient(135deg, #5a2b4a 0%, #3d1f2e 100%);*/
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -114,7 +114,7 @@
 }
 
 /* Products layout container - left sidebar + grid */
-.products-layout{ background: var(--page-bg); }
+.products-layout{ background: white; }
 
 /* ensure consistent spacing inside grid area */
 .products-layout > div[style] { box-sizing: border-box }

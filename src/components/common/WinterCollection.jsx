@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
 import './WinterCollection.css';
 
@@ -35,11 +36,13 @@ const WinterCollection = () => {
       <div className="wc-right">
         <div className="wc-card">
           <div className="wc-jacket-float">
-            <img
-              src="/Chamarras/chamarra1.png"
-              alt="Chamarra de Mezclilla"
-              className="wc-product-jacket"
-            />
+            <Link to="/producto/chamarra-mezclilla" onClick={() => window.scrollTo(0, 0)} style={{ display: 'block', width: '100%' }}>
+              <img
+                src="/Chamarras/chamarra1.png"
+                alt="Chamarra de Mezclilla"
+                className="wc-product-jacket"
+              />
+            </Link>
           </div>
           <div className="wc-product-info">
             <button className="wc-add-btn" onClick={handleAddToCart}>

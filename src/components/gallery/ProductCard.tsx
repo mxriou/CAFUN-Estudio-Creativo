@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
 type Product = {
   id: string;
+  slug: string;
   nombre: string;
   path: string;
   precio: number;
@@ -30,9 +32,15 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
 
   return (
     <article className={styles.card} aria-live="polite">
-      <div className={styles.media}>
-        <img src={product.path} alt={product.nombre} className={styles.img} />
-      </div>
+      <Link
+        to={`/producto/${product.slug}`}
+        className={styles.mediaLink}
+        onClick={() => window.scrollTo(0, 0)}
+      >
+        <div className={styles.media}>
+          <img src={product.path} alt={product.nombre} className={styles.img} />
+        </div>
+      </Link>
       <div className={styles.meta}>
         <h3 className={styles.name}>{product.nombre}</h3>
         <div className={styles.price}>{formatter.format(product.precio)}</div>

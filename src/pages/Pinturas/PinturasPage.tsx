@@ -9,6 +9,7 @@ const pinturas = Array.from({ length: 12 }).map((_, idx) => {
     const i = idx + 2;
     return {
         id: `pintura-${i}`,
+        slug: `pintura-${i}`,
         nombre: `Pintura ${i}`,
         path: `/Pinturas/pintura${i}.jpg`,
         precio: 30000 + (idx % 5) * 5000,

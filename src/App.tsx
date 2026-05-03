@@ -11,6 +11,7 @@ import ColeccionesPage from './pages/Colecciones/ColeccionesPage';
 import GaleriaPage from "./pages/Galeria/GaleriaPage";
 import NosotrosPage from "./pages/Nosotros/NosotrosPage";
 import PinturasPage from "./pages/Pinturas/PinturasPage";
+import PinturaDetallePage from "./pages/Pinturas/PinturaDetallePage";
 
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
@@ -39,6 +40,8 @@ const App: React.FC = () =>  {
         <Route path="/galeria" element={<GaleriaPage />} />
         <Route path="/nosotros" element={<NosotrosPage />} />
         <Route path="/colecciones" element={<ColeccionesPage />} />
+        <Route path="/pinturas/:slug" element={<PinturaDetallePage />} />
+        <Route path="/producto/:slug" element={<PinturaDetallePage />} />
       </Routes>
     </Router>
   );
