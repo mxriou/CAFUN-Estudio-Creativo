@@ -39,12 +39,15 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
       >
         <div className={styles.media}>
           <img src={product.path} alt={product.nombre} className={styles.img} />
+          <div className={styles.overlay}>
+            <span className={styles.overlayText}>Ver Producto</span>
+          </div>
         </div>
       </Link>
       <div className={styles.meta}>
         <h3 className={styles.name}>{product.nombre}</h3>
         <div className={styles.price}>{formatter.format(product.precio)}</div>
-        <div className={styles.stock}>{product.stock} disponibles</div>
+        <div className={styles.stock}>{product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}</div>
         <button
           className={styles.btn}
           onClick={handleAdd}
@@ -52,9 +55,8 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
           aria-disabled={product.stock <= 0}
         >
           {product.stock <= 0 ? 'Sin stock' : 'Agregar al carrito'}
-          <span className={styles.cartIcon} aria-hidden> 🛒</span>
         </button>
-        {justAdded && <div className={styles.toast}>Agregado</div>}
+        {justAdded && <div className={styles.toast}>Agregado ✓</div>}
       </div>
     </article>
   );

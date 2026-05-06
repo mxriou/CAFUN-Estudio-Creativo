@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
-import './ColeccionesPage.css';
+import styles from './ColeccionesPage.module.css';
 import ProductGrid from '../../components/gallery/ProductGrid';
 import FilterSidebar from '../../components/gallery/FilterSidebar';
 import Footer from '../../components/common/Footer';
@@ -70,30 +70,42 @@ const ColeccionesPage: React.FC = () => {
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
   const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
+  const progressPct = ((carouselIndex + 1) / baseChamarras.length) * 100;
+
   return (
-    <div className="colecciones-container">
-      <div className="colecciones-hero">
-        <h1 className="colecciones-title">COLECCIONES</h1>
+    <div className={styles.coleccionesContainer}>
+      <div className={styles.coleccionesHero}>
+        <div className={styles.heroBlock}>
+          <h1 className={styles.coleccionesTitle}>COLECCIONES</h1>
+          <p className={styles.heroSeason}>Temporada SS — 2026</p>
+          <div className={styles.heroLine} />
+        </div>
       </div>
 
-      <div className="carousel-section">
-        <div className="carousel-bg">
-          <div className="carousel-content">
-            <button className="carousel-btn" onClick={handleCarouselPrev} aria-label="Anterior">‹</button>
-            <div className="carousel-item">
-              <img src={currentChamarra.path} alt={currentChamarra.nombre} className="carousel-img" />
-              <p className="carousel-nombre">{currentChamarra.nombre}</p>
-              <p className="carousel-precio">${currentChamarra.precio.toLocaleString('es-MX')} MXN</p>
+      <div className={styles.carouselSection}>
+        <div className={styles.carouselBg}>
+          <span className={styles.carouselCounter}>
+            {String(carouselIndex + 1).padStart(2, '0')} / {String(baseChamarras.length).padStart(2, '0')}
+          </span>
+          <div className={styles.carouselContent}>
+            <button className={styles.carouselBtn} onClick={handleCarouselPrev} aria-label="Anterior">‹</button>
+            <div className={styles.carouselItem}>
+              <img src={currentChamarra.path} alt={currentChamarra.nombre} className={styles.carouselImg} />
+              <p className={styles.carouselNombre}>{currentChamarra.nombre}</p>
+              <p className={styles.carouselPrecio}>${currentChamarra.precio.toLocaleString('es-MX')} MXN</p>
             </div>
-            <button className="carousel-btn" onClick={handleCarouselNext} aria-label="Siguiente">›</button>
+            <button className={styles.carouselBtn} onClick={handleCarouselNext} aria-label="Siguiente">›</button>
+          </div>
+          <div className={styles.carouselProgress}>
+            <div className={styles.carouselProgressFill} style={{ width: `${progressPct}%` }} />
           </div>
         </div>
       </div>
 
-      <h2 className="chamarras-heading">✦ CHAMARRAS ✦</h2>
+      <h2 className={styles.chamarrasHeading}>CHAMARRAS</h2>
 
-      <div className="products-layout">
-        <div className="products-sidebar">
+      <div className={styles.productsLayout}>
+        <div className={styles.productsSidebar}>
           <FilterSidebar
             categories={categories.concat(['Playeras', 'Pantalones', 'Bufandas']).filter(Boolean)}
             selectedCategory={category}
@@ -102,24 +114,27 @@ const ColeccionesPage: React.FC = () => {
             onSortChange={handleSortChange}
           />
         </div>
-        <div className="products-main">
+        <div className={styles.productsMain}>
+          <div className={styles.resultsHeader}>
+            <span className={styles.resultsCount}>{filtered.length} artículo{filtered.length !== 1 ? 's' : ''}</span>
+          </div>
           <ProductGrid products={paginated} onAddToCart={handleAddToCart} />
-          <div className="pagination">
+          <div className={styles.pagination}>
             <button
-              className="page-arrow"
+              className={styles.pageArrow}
               onClick={() => setPage(p => Math.max(1, p - 1))}
               disabled={page === 1}
             >←</button>
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
-                className={`page-dot${page === i + 1 ? ' page-dot--active' : ''}`}
+                className={`${styles.pageDot}${page === i + 1 ? ` ${styles.pageDotActive}` : ''}`}
                 onClick={() => setPage(i + 1)}
                 aria-label={`Página ${i + 1}`}
               />
             ))}
             <button
-              className="page-arrow"
+              className={styles.pageArrow}
               onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
             >→</button>
@@ -127,14 +142,14 @@ const ColeccionesPage: React.FC = () => {
         </div>
       </div>
 
-      <section className="colecciones-subscribe">
-        <h2 className="subscribe-titulo">SUBSCRIBIRSE</h2>
-        <p className="subscribe-subtitulo">
+      <section className={styles.coleccionesSubscribe}>
+        <h2 className={styles.subscribeTitulo}>SUBSCRIBIRSE</h2>
+        <p className={styles.subscribeSubtitulo}>
           Suscríbete a nuestra lista de correo para enterarte<br />
           sobre lanzamientos de nuevas colecciones
         </p>
-        <hr className="subscribe-hr" />
-        <button className="subscribe-btn">Suscribirse</button>
+        <hr className={styles.subscribeHr} />
+        <button className={styles.subscribeBtn}>Suscribirse</button>
       </section>
 
       <Footer />
