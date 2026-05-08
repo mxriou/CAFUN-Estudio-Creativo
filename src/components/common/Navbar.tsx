@@ -8,7 +8,7 @@ const menuItems = [
     { label: 'Colecciones', path: '/colecciones'},
     { label: 'Pinturas', path: '/pinturas'}, 
     { label: 'Artistas', path: '/artistas'},
-    { label: 'Galeria', path: '/galeria'},
+    { label: 'Galería', path: '/galeria'},
     { label: 'Nosotros', path: '/nosotros'},
 ];
 
