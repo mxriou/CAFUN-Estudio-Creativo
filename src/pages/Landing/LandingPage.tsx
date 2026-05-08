@@ -62,6 +62,7 @@ const LandingPage: React.FC = () => {
       <section className="hero-section">
         <div className="hero-bg-layer" style={{backgroundImage: `url(${HeroBg})`}} aria-hidden="true" />
         <div className="hero-content">
+          <h1 className="visually-hidden">CAFUN Artist — Arte y streetwear contemporáneo</h1>
           <img src="/logo-cafun.png" alt="Cafun Estudio Creativo" className="hero-logo" onClick={() => { window.scrollTo(0, 0); navigate('/'); }} style={{ cursor: 'pointer' }} />
           <button className="hero-btn" onClick={() => navigate('/colecciones')}>
             Ver Colecciones
