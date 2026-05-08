@@ -122,7 +122,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
               className="add-to-cart-detail"
               onClick={() => onAddToCart(product.id)}
             >
-              AÑADIR AL CARRITO
+              Agregar al carrito
             </button>
 
             <div className="additional-info">

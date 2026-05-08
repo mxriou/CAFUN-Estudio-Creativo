@@ -87,7 +87,7 @@ const PinturaDetallePage: React.FC = () => {
             <span>Entregas en toda la República Mexicana</span>
           </div>
           <button className="detalle-btn-carrito" onClick={handleAddToCart}>
-            AÑADIR AL CARRITO
+            Agregar al carrito
           </button>
           <div className="detalle-notas">
             <p>Tiempo estimado de entrega de 3-7 días dentro del país</p>
