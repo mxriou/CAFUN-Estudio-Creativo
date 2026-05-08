@@ -1,0 +1,144 @@
+.artistas-page-root {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Afacad', sans-serif;
+    color: #0a0a0a;
+    background: #ffffff;
+}
+
+.artistas-page-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 64px 24px 40px;
+    text-align: center;
+}
+
+.artistas-page-title {
+    font-family: 'Aboreto', sans-serif;
+    font-size: clamp(2rem, 5vw, 55px);
+    font-weight: 400;
+    color: #0a0a0a;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.artistas-page-subtitle {
+    font-family: 'Aboreto', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #777;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.artistas-page-line {
+    width: 48px;
+    height: 1px;
+    background: #0a0a0a;
+}
+
+.artistas-page-intro {
+    max-width: 640px;
+    margin: 16px auto 0;
+    font-family: 'Afacad', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.artistas-page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    max-width: 1140px;
+    margin: 24px auto 80px;
+    padding: 0 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.artistas-page-card {
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.artistas-page-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #eee;
+}
+
+.artistas-page-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.artistas-page-card:hover .artistas-page-card-img img {
+    transform: scale(1.03);
+}
+
+.artistas-page-card-body {
+    padding: 20px 24px 28px;
+}
+
+.artistas-page-card-name {
+    font-family: 'Aboreto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 4px;
+    color: #0a0a0a;
+}
+
+.artistas-page-card-disciplina {
+    font-family: 'Afacad', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin: 0 0 12px;
+}
+
+.artistas-page-card-bio {
+    font-family: 'Afacad', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #333;
+    margin: 0;
+}
+
+.artistas-page-root footer {
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .artistas-page-hero {
+        padding: 40px 20px 28px;
+    }
+
+    .artistas-page-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 16px auto 60px;
+        padding: 0 16px;
+    }
+
+    .artistas-page-card-name {
+        font-size: 20px;
+    }
+}
