@@ -56,6 +56,11 @@ const GaleriaPage: React.FC = () => {
 
   return (
     <div className="galeria-root">
+      <header className="galeria-hero">
+        <h1 className="galeria-title">GALERÍA</h1>
+        <p className="galeria-hero-subtitle">Exposiciones — 2026</p>
+        <div className="galeria-hero-line" />
+      </header>
       <div className="layout">
         <div className="gallery-grid" ref={gridRef}>
           {items}
