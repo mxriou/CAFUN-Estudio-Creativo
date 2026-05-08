@@ -1,63 +1,142 @@
-.nosotros-container{
-  max-width:1000px;
-  margin:0 auto;
-  padding:2rem;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:#000;
-  background-color:#fff;
-  line-height:1.6;
-  margin-top: 100px;
+.nosotros-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+    margin-top: 100px;
+    font-family: 'Afacad', sans-serif;
+    color: #0a0a0a;
+    background: #ffffff;
+    line-height: 1.6;
+    min-height: calc(100vh - 100px);
 }
 
-.nosotros-header{
-  text-align:center;
-  margin-bottom:1.5rem;
+/* ---- Hero ---- */
+.nosotros-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    margin-bottom: 56px;
 }
 
-.nosotros-hero{
-  max-width:760px;
-  margin:0.5rem auto 0;
-  color:#000;
+.nosotros-title {
+    font-family: 'Aboreto', sans-serif;
+    font-size: clamp(2rem, 5vw, 55px);
+    font-weight: 400;
+    color: #0a0a0a;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
 }
 
-.nosotros-section{
-  margin-bottom:1.75rem;
+.nosotros-subtitle {
+    font-family: 'Aboreto', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #777;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-.team-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1rem;
+.nosotros-line {
+    width: 48px;
+    height: 1px;
+    background: #0a0a0a;
 }
 
-.team-card{
-  flex:1 1 300px;
-  border:1px solid #e6e6e6;
-  border-radius:8px;
-  padding:1rem;
-  background:#fff;
-  color:#000;
+.nosotros-hero {
+    max-width: 720px;
+    margin: 16px auto 0;
+    font-family: 'Afacad', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #333;
 }
 
-.team-card h3{
-  margin:0 0 0.25rem 0;
+/* ---- Sections ---- */
+.nosotros-section {
+    margin-bottom: 56px;
 }
 
-.team-role{
-  margin:0;
-  font-weight:600;
-  color:#000;
+.nosotros-section-title {
+    font-family: 'Aboreto', sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0a0a0a;
+    margin: 0 0 20px;
 }
 
-.team-desc{
-  margin-top:0.5rem;
-  color:#000;
+.nosotros-section-body {
+    font-family: 'Afacad', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #333;
+    max-width: 820px;
+    margin: 0;
 }
 
-/* Anular background global aplicado en App.css (gradient morado) */
-.nosotros-container{
-  background: #fff !important;
-  background-image: none !important;
-  color: #000 !important;
-  min-height: calc(100vh - 70px);
+/* ---- Team ---- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px 28px;
+    margin-top: 8px;
+}
+
+.team-card {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid #0a0a0a;
+    padding-top: 16px;
+}
+
+.team-name {
+    font-family: 'Aboreto', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0a0a0a;
+    margin: 0;
+}
+
+.team-role {
+    font-family: 'Afacad', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin: 0;
+}
+
+.team-desc {
+    font-family: 'Afacad', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #333;
+    margin: 8px 0 0;
+}
+
+@media (max-width: 768px) {
+    .nosotros-container {
+        padding: 40px 20px 60px;
+    }
+
+    .nosotros-hero {
+        font-size: 16px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
 }

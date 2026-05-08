@@ -39,7 +39,9 @@ const NosotrosPage: React.FC = () => {
     return (
         <main className="nosotros-container">
             <header className="nosotros-header">
-                <h1>Nosotros</h1>
+                <h1 className="nosotros-title">NOSOTROS</h1>
+                <p className="nosotros-subtitle">Estudio Creativo — 2026</p>
+                <div className="nosotros-line" />
                 <p className="nosotros-hero">
                     CAFUN Estudio Creativo desarrolla un ecosistema en el que el arte no compite,
                     sino que se expande: un espacio donde múltiples talentos convergen para
@@ -48,8 +50,8 @@ const NosotrosPage: React.FC = () => {
             </header>
 
             <section className="nosotros-section" aria-labelledby="mision-heading">
-                <h2 id="mision-heading">Misión</h2>
-                <p>
+                <h2 id="mision-heading" className="nosotros-section-title">Misión</h2>
+                <p className="nosotros-section-body">
                     Nuestra misión es potenciar prácticas creativas colaborativas que amplifiquen el
                     alcance del arte y lo hagan accesible. Creamos conexiones entre artistas,
                     curadores, productores y audiencias para transformar ideas en experiencias
@@ -58,11 +60,11 @@ const NosotrosPage: React.FC = () => {
             </section>
 
             <section className="nosotros-section" aria-labelledby="equipo-heading">
-                <h2 id="equipo-heading">Equipo</h2>
+                <h2 id="equipo-heading" className="nosotros-section-title">Equipo</h2>
                 <div className="team-grid">
                     {members.map((m) => (
                         <article key={m.name} className="team-card">
-                            <h3>{m.name}</h3>
+                            <h3 className="team-name">{m.name}</h3>
                             <p className="team-role">{m.role}</p>
                             <p className="team-desc">{m.desc}</p>
                         </article>
