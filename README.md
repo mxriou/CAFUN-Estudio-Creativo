@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# CAFUN Estudio Creativo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CAFUN Estudio Creativo es el punto de encuentro entre el arte y el comercio. Una plataforma de **e-commerce colaborativo** donde artistas, productores y maquiladores transforman su talento en oportunidades reales de venta. En CAFUN, cada creación encuentra su mercado: desde nichos especializados hasta audiencias globales.
 
-## Available Scripts
+Este repositorio contiene el código fuente del frontend de la plataforma, desarrollado con **React + TypeScript** sobre Create React App.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📋 Requisitos previos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Antes de implementar el proyecto en tu entorno local, asegúrate de tener instalado:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Node.js** (versión 16 o superior) — [Descargar aquí](https://nodejs.org/)
+- **npm** (incluido con Node.js) o **Yarn** (el repositorio incluye `yarn.lock`)
+- **Git** para clonar el repositorio
+- Un editor de código recomendado: **Visual Studio Code** (el repo incluye configuración `.vscode`)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Instalación paso a paso
 
-### `npm run build`
+Sigue estas indicaciones para levantar CAFUN Estudio Creativo en tu máquina:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clonar el repositorio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/mxriou/CAFUN-Estudio-Creativo.git
+cd CAFUN-Estudio-Creativo
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Instalar las dependencias
+
+Puedes usar **npm** o **yarn**. Como el proyecto incluye `yarn.lock`, se recomienda Yarn para mantener consistencia de versiones:
+
+```bash
+# Con Yarn (recomendado)
+yarn install
+
+# O con npm
+npm install
+```
+
+### 3. Ejecutar el proyecto en modo desarrollo
+
+```bash
+yarn start
+# o bien
+npm start
+```
+
+Esto iniciará el servidor de desarrollo. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la plataforma de CAFUN funcionando.
+
+La página se recargará automáticamente cada vez que guardes cambios y podrás ver los errores de lint directamente en la consola.
+
+---
+
+## 🛠️ Scripts disponibles
+
+Dentro del directorio del proyecto puedes ejecutar los siguientes comandos:
+
+### `npm start` o `yarn start`
+
+Ejecuta la aplicación en **modo desarrollo** sobre [http://localhost:3000](http://localhost:3000). Ideal para trabajar en nuevas vistas del catálogo, secciones de artistas o flujos de compra del e-commerce.
+
+### `npm test` o `yarn test`
+
+Lanza el corredor de pruebas en modo interactivo. Útil para validar componentes críticos como el carrito, el checkout o los perfiles de creadores.
+
+Más información en la [documentación de pruebas](https://facebook.github.io/create-react-app/docs/running-tests).
+
+### `npm run build` o `yarn build`
+
+Genera la versión optimizada para **producción** dentro de la carpeta `build`. Empaqueta React en modo producción, minifica el código y agrega hashes a los archivos para un despliegue eficiente.
+
+Una vez generado, la plataforma estará lista para subirse al servidor de hosting elegido. Consulta la [guía de despliegue](https://facebook.github.io/create-react-app/docs/deployment) para más detalles.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**⚠️ Nota importante: esta es una operación irreversible. Una vez que ejecutes `eject`, no podrás volver atrás.**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si necesitas un control total sobre la configuración (Webpack, Babel, ESLint, etc.), este comando copiará todos los archivos de configuración al proyecto. No es necesario usarlo a menos que el equipo de CAFUN requiera personalizaciones avanzadas en el build.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📁 Estructura del proyecto
 
-## Learn More
+```
+CAFUN-Estudio-Creativo/
+├── .vscode/          # Configuración recomendada del editor
+├── public/           # Archivos estáticos (favicon, index.html, etc.)
+├── src/              # Código fuente de la aplicación React + TypeScript
+├── package.json      # Dependencias y scripts del proyecto
+├── tsconfig.json     # Configuración de TypeScript
+└── yarn.lock         # Versiones bloqueadas de dependencias
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎨 Sobre el proyecto
+
+CAFUN Estudio Creativo busca conectar a **artistas, productores y maquiladores** con audiencias que valoran lo auténtico. La plataforma está pensada para:
+
+- Visibilizar creadores independientes y darles un canal de venta directo.
+- Facilitar la colaboración entre productores y maquiladores.
+- Llevar productos de nichos especializados a mercados globales.
+
+Si quieres contribuir al proyecto, abre un *issue* o envía un *pull request* describiendo tu propuesta.
+
+---
+
+## 📚 Recursos adicionales
+
+- [Documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
+- [Documentación oficial de React](https://reactjs.org/)
+- [Documentación de TypeScript](https://www.typescriptlang.org/docs/)
